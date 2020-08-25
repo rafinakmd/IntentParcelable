@@ -54,8 +54,8 @@ View.OnClickListener{
 
             case R.id.btn_move_with_data_activity:
                 Intent moveWithDataIntent = new Intent(MainActivity.this,MoveWithDataActivity.class);
-                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Rafn AKhmad Farisly");
-                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 24);
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "Rafn Akhmad Farisly");
+                moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 17);
                 startActivity(moveWithDataIntent);
                 break;
 
