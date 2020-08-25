@@ -1,6 +1,9 @@
 package com.example.intentparcelable;
 
-public class person {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class person implements Parcelable {
     private String name;
     private int age;
     private String email;
@@ -37,4 +40,39 @@ public class person {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeInt(this.age);
+        dest.writeString(this.email);
+        dest.writeString(this.city);
+    }
+
+    public person() {
+    }
+
+    protected person(Parcel in) {
+        this.name = in.readString();
+        this.age = in.readInt();
+        this.email = in.readString();
+        this.city = in.readString();
+    }
+
+    public static final Parcelable.Creator<person> CREATOR = new Parcelable.Creator<person>() {
+        @Override
+        public person createFromParcel(Parcel source) {
+            return new person(source);
+        }
+
+        @Override
+        public person[] newArray(int size) {
+            return new person[size];
+        }
+    };
 }
